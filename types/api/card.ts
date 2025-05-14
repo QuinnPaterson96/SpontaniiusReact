@@ -18,3 +18,7 @@ export interface CardResponse {
   greeting_type: string;
   name: string;
 }
+
+export interface GetCardsRequest {
+  card_ids: number[];
+}
