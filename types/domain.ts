@@ -1,4 +1,3 @@
-// types/domain.ts
 export interface Card {
   id: number;
   userId: string;
@@ -7,6 +6,22 @@ export interface Card {
   greeting?: string | null;
 }
 
+export interface Event {
+  eventId: number;
+  ownerId: string;
+  title: string;
+  description?: string | null;
+  gender: string;
+  streetName?: string | null;
+  icon: string;
+  startTime: string;
+  endTime: string;
+  latitude: number;
+  longitude: number;
+  invitation: number;
+  cardIds: number[];
+  distance?: number | null;
+}
 
 export interface User {
   id: string;

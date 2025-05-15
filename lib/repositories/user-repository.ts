@@ -1,9 +1,9 @@
-import ApiService from '@/services/apiService';
+import ApiService from '@/services/api-service';
 import { 
   CreateUserRequest, DeleteUserRequest, UpdateUserCardRequest, 
   UpdateUserFCMTokenRequest, UpdateUserRequest, UserResponse 
 } from '@/types/api';
-import { useUserStore } from '@/state/userStore';
+import { useUserStore } from '@/state/user-store';
 
 /**
  * Fetches user details from the backend and caches them locally.

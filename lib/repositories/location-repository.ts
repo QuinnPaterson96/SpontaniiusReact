@@ -1,6 +1,6 @@
 import * as Location from 'expo-location';
 import { LatLng } from 'react-native-maps';
-import { GoogleApiService } from '@/services/googleApiService';
+import { GoogleApiService } from '@/services/google-api-service';
 import { GeocodingResponse } from '@/types/api';
 
 /**

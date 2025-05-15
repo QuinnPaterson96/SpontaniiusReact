@@ -1,4 +1,4 @@
-import { googlePlacesClient } from './axiosClients';
+import { googlePlacesClient } from './axios-clients';
 import { AutocompleteRequest } from '@/types/api';
 
 export const PlacesApiService = {

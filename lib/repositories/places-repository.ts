@@ -1,6 +1,6 @@
 import { LatLng } from 'react-native-maps';
 import { AutocompleteRequest, PlaceDetailsResponse, PlaceSuggestion } from '@/types/api';
-import { PlacesApiService } from '@/services/placesApiService';
+import { PlacesApiService } from '@/services/places-api-service';
 import { Circle, LatLngWrapper, LocationBias } from '@/types/api/autocompleteModels'; // if modularized
 import { v4 as uuidv4 } from 'uuid';
 

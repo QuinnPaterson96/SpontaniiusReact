@@ -1,4 +1,4 @@
-import { googleMapsClient } from './axiosClients';
+import { googleMapsClient } from './axios-clients';
 
 export const GoogleApiService = {
   getLocationFromAddress: (address: string, apiKey: string) =>

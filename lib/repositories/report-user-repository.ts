@@ -3,7 +3,7 @@
 
 // TODO: Translate logic from original Kotlin class into TS here
 
-import ApiService from '@/services/apiService';
+import ApiService from '@/services/api-service';
 import { ReportRequest, ReportResponse } from '@/types/api';
 
 /**

@@ -1,13 +1,14 @@
-import ApiService from '@/services/apiService';
+import ApiService from '@/services/api-service';
 import { CardCreateRequest, CardResponse } from '@/types/api';
-import { User } from '@/types/domain';
-import { useCardStore } from '@/state/cardStore';
-import { useUserStore } from '@/state/userStore'; // assumed
+import { User, Card } from '@/types/domain';
+import { toCardDomain } from '@/mappers/card-mapper';
+import { useCardStore } from '@/state/card-store';
+import { useUserStore } from '@/state/user-store'; // assumed
 
 /**
  * Fetches card details with local cache fallback.
  */
-export async function getCardDetails(cardIds: number[]): Promise<CardResponse[]> {
+export async function getCardDetails(cardIds: number[]): Promise<Card[]> {
   try {
     const cachedCards = useCardStore.getState().cards.filter((card) =>
       cardIds.includes(card.id)
@@ -18,11 +19,12 @@ export async function getCardDetails(cardIds: number[]): Promise<CardResponse[]>
 
     if (missingCardIds.length > 0) {
       const response = await ApiService.getCardDetails({ card_ids: missingCardIds });
-      const newCards = response.data;
+      const newCards: CardResponse[] = response.data;
+      const domainCards: Card[] = newCards.map(toCardDomain)
 
       if (newCards.length > 0) {
-        useCardStore.getState().addCards(newCards);
-        return [...cachedCards, ...newCards];
+        useCardStore.getState().addCards(domainCards);
+        return [...cachedCards, ...domainCards];
       }
     }
 
@@ -54,9 +56,10 @@ export async function createCard(card_text: string | null, backgroundId: number)
   try {
     const response = await ApiService.createCard(request);
     const createdCard = response.data;
+    const createCardAsDomain = createCard.apply(toCardDomain)
 
     if (createdCard.cardId != null) {
-      useCardStore.getState().addCards([createdCard]);
+      useCardStore.getState().addCards([createCardAsDomain]);
       return createdCard.cardId;
     } else {
       throw new Error('card_id missing from response');
