@@ -1,14 +1,16 @@
+// Consolidated interfaces for User
+
 export interface CreateUserRequest {
-  external_id: string;
-  auth_provider: string;
   name: string;
-  gender: string;
+  phone: string | null;
+  gender: string | null;
+  card_id: string | null;
+  external_id: string | null;
+  auth_provider: string | null;
 }
 
-export interface UpdateUserRequest {
-  name: string;
-  phone: string;
-  gender: string;
+export interface DeleteUserRequest {
+  external_id: string;
 }
 
 export interface UpdateUserCardRequest {
@@ -16,22 +18,29 @@ export interface UpdateUserCardRequest {
   card_id: number;
 }
 
-export interface UpdateUserLocationRequest {
-  lat: number;
-  lng: number;
+export interface UpdateUserFCMTokenRequest {
+  fcmToken: string;
 }
 
-export interface UpdateUserFCMTokenRequest {
-  fcm_token: string;
+export interface UpdateUserLocationRequest {
+  latitude: number;
+  longitude: number;
+}
+
+export interface UpdateUserRequest {
+  name?: string;
+  phone?: string;
+  gender?: string;
+  cardId: string;
 }
 
 export interface UserResponse {
-  user_id: string;
+  id: string;
   name: string;
-  gender: string;
-  card_id?: number;
-}
-
-export interface DeleteUserRequest {
-  external_id: string;
+  phone: string | null;
+  gender: string | null;
+  card_id: number | null;
+  external_id: string | null;
+  auth_provider: string | null;
+  terms_accepted: boolean;
 }

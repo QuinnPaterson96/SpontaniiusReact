@@ -1,6 +1,10 @@
+// Consolidated interfaces for Promotion
+
 export interface PromotionCreateRequest {
-  promo_text: string;
-  event_id: number;
-  start_time: string;
-  end_time: string;
+  promotionAddress: number[];
+  promotionTitle: string;
+  promotionText: string;
+  icon: string;
+  background: string;
+  background_address: string;
 }

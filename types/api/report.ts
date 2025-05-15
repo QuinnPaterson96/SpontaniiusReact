@@ -1,12 +1,12 @@
+// Consolidated interfaces for Report
+
 export interface ReportRequest {
-  reporter_id: string;
-  reported_id: string;
-  report_text: string;
+  userId: string;
+  cardId: number | null;
+  reportText: string;
 }
 
 export interface ReportResponse {
-  report_id: number;
-  reporter_id: string;
-  reported_id: string;
-  report_text: string;
+  reportId: number;
+  success: boolean;
 }

@@ -1,22 +1,36 @@
+// Consolidated interfaces for Card
+
+export interface CardCollectionRequest {
+  user_id: string;
+  card_ids: number[];
+  event_id: number;
+  meeting_date: string; // ISO 8601 format
+}
+
+export interface CardCollectionResponse {
+  collection_id: number;
+  user_id: string;
+  card_ids: number[] | null;
+  event_id: number;
+  meeting_date: string; // ISO 8601 format
+}
+
+
 export interface CardCreateRequest {
   user_id: string;
-  background_color: string;
-  greeting_text: string;
-  phone_included: boolean;
-  phone_number?: string;
-  greeting_type: string;
-  name: string;
+  user_name: string;
+  card_text: string | null;
+  background: string | null;
+  background_address: string | null;
 }
 
 export interface CardResponse {
-  card_id: number;
+  cardId: number;
   user_id: string;
-  background_color: string;
-  greeting_text: string;
-  phone_included: boolean;
-  phone_number?: string;
-  greeting_type: string;
-  name: string;
+  user_name: string;
+  card_text: string | null;
+  background: string;
+  background_address: string;
 }
 
 export interface GetCardsRequest {

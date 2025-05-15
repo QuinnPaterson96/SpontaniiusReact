@@ -19,7 +19,7 @@
     "expo-splash-screen": "~0.30.7",
     "expo-sqlite": "~15.2.9",
     "expo-status-bar": "~2.2.3",
-    "firebase": "^11.7.1",
+    "firebase": "^11.7.2",
     "i18next": "^25.1.2",
     "nativewind": "^4.0.1",
     "react": "19.0.0",
