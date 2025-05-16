@@ -12,9 +12,11 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.24.0",
     "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
     "expo": "^53.0.4",
     "expo-constants": "~17.1.4",
     "expo-linking": "~7.1.4",
+    "expo-location": "^18.1.5",
     "expo-router": "~5.0.3",
     "expo-splash-screen": "~0.30.7",
     "expo-sqlite": "~15.2.9",

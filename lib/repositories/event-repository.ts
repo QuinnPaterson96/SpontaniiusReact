@@ -28,8 +28,9 @@ export async function getNearbyEvents(
   };
 
   const response = await ApiService.getNearbyEvents(request);
-  const responseAsDomain = response.data.map
-  return response.data.map((e) => e as Event); // Or map with a toDomain() if needed
+  const responseAsDomain = response.data.map(toEventDomain)
+
+  return responseAsDomain; // Or map with a toDomain() if needed
 }
 
 /**
@@ -94,7 +95,8 @@ export async function endEvent(eventId: number): Promise<EventResponse> {
  */
 export async function fetchEventDetails(eventId: number): Promise<Event> {
   const response = await ApiService.getEventById(eventId);
-  return response.data as Event; // Add .toDomain() if needed
+  const responseData = response.data
+  return toEventDomain(responseData); // Add .toDomain() if needed
 }
 
 /**
