@@ -9,6 +9,7 @@ import {
 import { Event } from '@/types/domain';
 import { LatLng } from 'react-native-maps'; // if using Expo's MapView
 import dayjs from 'dayjs';
+import { toEventDomain } from '@/mappers/event-mapper';
 
 /**
  * Fetch nearby events from the API.
@@ -27,6 +28,7 @@ export async function getNearbyEvents(
   };
 
   const response = await ApiService.getNearbyEvents(request);
+  const responseAsDomain = response.data.map
   return response.data.map((e) => e as Event); // Or map with a toDomain() if needed
 }
 
