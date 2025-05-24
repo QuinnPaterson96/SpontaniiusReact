@@ -42,7 +42,6 @@ export default {
             "Allow Spontaniius to access your location while the app is in use."
         }
       ],
-      "expo-firebase-messaging"
     ]
   }
 };
