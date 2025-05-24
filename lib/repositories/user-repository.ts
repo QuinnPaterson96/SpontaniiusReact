@@ -104,7 +104,7 @@ export async function updateUserFCMToken(fcmToken: string): Promise<void> {
   const userId = getUserId();
   if (!userId) throw new Error('Missing user ID');
 
-  await ApiService.updateUserFCMToken(userId, { fcm_token: fcmToken });
+  await ApiService.updateUserFCMToken(userId, { fcmToken });
 }
 
 /**
